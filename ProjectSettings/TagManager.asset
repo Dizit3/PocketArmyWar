@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - WayPoint
+  - Minion
+  - OurBase
+  - Enemy
   layers:
   - Default
   - TransparentFX
