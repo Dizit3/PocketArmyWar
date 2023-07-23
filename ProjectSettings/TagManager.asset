@@ -8,6 +8,7 @@ TagManager:
   - Minion
   - OurBase
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX

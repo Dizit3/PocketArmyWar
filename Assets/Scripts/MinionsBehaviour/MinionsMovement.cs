@@ -6,11 +6,13 @@ public class MinionsMovement : MonoBehaviour
 
     private NavMeshAgent agent;
 
-    private Vector3 mainTarget;
+    private static Vector3 mainTarget;
+    private static Vector3 mainTargetContainer;
+    private GameObject enemyTarget;
 
     private MinionEnemyDetection detection;
 
-    private GameObject currentTarget;
+
 
 
     private void Awake()
@@ -27,16 +29,16 @@ public class MinionsMovement : MonoBehaviour
 
     private void StartMove()
     {
-
+        mainTargetContainer = mainTarget;
         agent.destination = mainTarget;
     }
 
 
     private void Update()
     {
-        if (currentTarget != null)
+        if (enemyTarget != null)
         {
-            agent.destination = currentTarget.transform.position;
+            agent.destination = enemyTarget.transform.position;
         }
         else
         {
@@ -47,15 +49,15 @@ public class MinionsMovement : MonoBehaviour
 
     private void SetTarget(GameObject target)
     {
-        currentTarget = target;
+        enemyTarget = target;
     }
 
 
     private void ContinueMainTask()
     {
-        if (mainTarget != Vector3.zero)
+        if (mainTargetContainer != Vector3.zero)
         {
-            agent.destination = mainTarget;
+            agent.destination = mainTargetContainer;
         }
     }
 
