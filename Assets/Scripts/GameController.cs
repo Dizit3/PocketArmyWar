@@ -46,6 +46,12 @@ public class GameController : MonoBehaviour
             IsGameStarted = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            IsGameStarted = false;
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0f)
         {
