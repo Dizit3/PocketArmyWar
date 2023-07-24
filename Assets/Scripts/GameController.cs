@@ -44,6 +44,10 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             IsGameStarted = true;
+        } 
+        else if(Input.touchCount > 2) 
+        {
+            IsGameStarted = true;
         }
 
         if (Input.GetKeyDown(KeyCode.S))
