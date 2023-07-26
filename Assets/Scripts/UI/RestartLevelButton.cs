@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RestartLevelButton : MonoBehaviour
 {
 
 
-    private void OnClick()
+    public void OnClick()
     {
-
+        SceneManager.LoadScene(0);
     }
 }

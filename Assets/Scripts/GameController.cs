@@ -4,9 +4,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    private  bool isGameStarted = false;
+    private bool isGameStarted;
+    public static event Action onGameStartedChanged;
 
-    public  bool IsGameStarted
+
+    public bool IsGameStarted
     {
         get { return isGameStarted; }
         set
@@ -21,31 +23,24 @@ public class GameController : MonoBehaviour
         }
     }
 
-
-    public static event Action onGameStartedChanged;
+    
 
     private void Awake()
     {
         EnemyBase.OnBaseDestroy += OnWin;
+
+        Time.timeScale = 1f;
+        isGameStarted = false;
     }
 
-    private void OnWin()
-    {
-
-        Debug.Log("WIN");
-
-        // Do Something
-
-    }
 
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             IsGameStarted = true;
-        } 
-        else if(Input.touchCount > 2) 
+        }
+        else if (Input.touchCount > 2)
         {
             IsGameStarted = true;
         }
@@ -54,8 +49,6 @@ public class GameController : MonoBehaviour
         {
             IsGameStarted = false;
         }
-
-
 
         if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0f)
         {
@@ -67,9 +60,21 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1.0f;
             return;
         }
-
-
     }
+
+
+
+    private void OnWin()
+    {
+
+        Time.timeScale = 0.1f;
+
+
+
+
+        Debug.Log("WIN");
+    }
+
 
 
 
