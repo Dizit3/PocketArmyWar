@@ -1,66 +1,129 @@
+﻿
 using System;
 using System.Collections;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    public int enemyBaseHP;
+    public int currentHP; // Текущее количество очков здоровья базы
+    [SerializeField] private GameObject enemyPrefab; // Префаб врага, который будет появляться
 
-    [SerializeField] private GameObject enemyPref;
+    public event Action OnBaseDestroy; // Событие, которое будет вызвано при уничтожении базы
 
-    public static event Action OnBaseDestroy;
+    private bool isSpawnActive = false; // Флаг активности спавна врагов
 
-    private bool isSpawnActive = false;
-
-
-    private void Awake()
+    private void Start()
     {
-        GameController.onGameStartedChanged += SpawnEnemies;
+        // Находим объект GameController и подписываемся на событие изменения состояния игры
+        GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
+        gameController.GetComponent<GameController>().onGameStartedChanged += ToggleEnemySpawn;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Minion")
+        if (other.CompareTag("Minion"))
         {
-            --enemyBaseHP;
+            --currentHP; // Уменьшаем очки здоровья базы
 
-            other.gameObject.SetActive(false);
+            other.gameObject.SetActive(false); // Деактивируем объект "Minion"
 
-            if (enemyBaseHP <= 0)
+            if (currentHP <= 0)
             {
+                // Если очки здоровья опустились до нуля, вызываем событие уничтожения базы
                 OnBaseDestroy?.Invoke();
             }
         }
     }
 
-
-
-
-    private void SpawnEnemies()
+    private void ToggleEnemySpawn()
     {
         if (!isSpawnActive)
         {
+            // Активируем спавн врагов и запускаем корутину
             isSpawnActive = true;
             StartCoroutine("EnemySpawn");
         }
         else
         {
+            // Деактивируем спавн врагов и останавливаем корутину
             isSpawnActive = false;
             StopCoroutine("EnemySpawn");
         }
     }
 
-
     private IEnumerator EnemySpawn()
     {
         while (true)
         {
-            Instantiate(enemyPref, transform.position, Quaternion.identity);
+            // Создаём нового врага на позиции базы
+            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.0f); // Ждем 1 секунду перед созданием следующего врага
         }
     }
-
-
-
 }
+
+
+
+//using System;
+//using System.Collections;
+//using UnityEngine;
+
+//public class EnemyBase : MonoBehaviour
+//{
+//    public int currentHP;
+
+//    [SerializeField] private GameObject enemyPrefab;
+
+//    public event Action OnBaseDestroy;
+
+//    private bool isSpawnActive = false;
+
+
+//    private void Start()
+//    {
+//        GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
+//        gameController.GetComponent<GameController>().onGameStartedChanged += ToggleEnemySpawn;
+//    }
+
+//    private void OnTriggerEnter(Collider other)
+//    {
+//        if (other.CompareTag("Minion"))
+//        {
+//            --currentHP;
+
+//            other.gameObject.SetActive(false);
+
+//            if (currentHP <= 0)
+//            {
+//                OnBaseDestroy?.Invoke();
+//            }
+//        }
+//    }
+
+
+//    private void ToggleEnemySpawn()
+//    {
+//        if (!isSpawnActive)
+//        {
+//            isSpawnActive = true;
+//            StartCoroutine("EnemySpawn");
+//        }
+//        else
+//        {
+//            isSpawnActive = false;
+//            StopCoroutine("EnemySpawn");
+//        }
+//    }
+
+
+//    private IEnumerator EnemySpawn()
+//    {
+//        while (true)
+//        {
+//            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+
+//            yield return new WaitForSeconds(1.0f);
+//        }
+//    }
+//}

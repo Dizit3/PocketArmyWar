@@ -1,65 +1,72 @@
+﻿
+
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject.Asteroids;
 
 public class MinionsMovement : MonoBehaviour
 {
-
     private NavMeshAgent agent;
+    private Vector3 waypointPosition; // Позиция точки назначения (Waypoint)
+    private GameObject enemyTarget; // Цель-враг, если обнаружена
 
-    private static Vector3 mainTarget;
-    private static Vector3 mainTargetContainer;
-    private GameObject enemyTarget;
-
-    private MinionEnemyDetection detection;
-
-
-
+    private MinionEnemyDetection detection; // Компонент, отвечающий за обнаружение врагов
+    private GameController gameController; // Компонент контроллера игры
 
     private void Awake()
     {
+        // Получаем ссылку на компонент NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
+
+        // Получаем ссылку на компонент обнаружения врагов
         detection = GetComponentInChildren<MinionEnemyDetection>();
-        mainTarget = GameObject.FindGameObjectWithTag("WayPoint").transform.position;
 
-        GameController.onGameStartedChanged += StartMove;
+        // Получаем позицию точки назначения (Waypoint)
+        waypointPosition = GameObject.FindGameObjectWithTag("EnemyBase").transform.position;
+
+        // Получаем ссылку на компонент контроллера игры
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
+        // Подписываемся на событие начала игры
+        gameController.onGameStartedChanged += StartMove;
+
+        // Подписываемся на событие обнаружения врага
         detection.OnEnemyDetect += SetTarget;
-
-
     }
 
     private void StartMove()
     {
-        mainTargetContainer = mainTarget;
-        agent.destination = mainTarget;
+        // Начинаем движение к точке назначения (Waypoint)
+        agent.destination = waypointPosition;
     }
-
 
     private void Update()
     {
         if (enemyTarget != null)
         {
+            // Если обнаружена цель-враг, двигаемся к ней
             agent.destination = enemyTarget.transform.position;
         }
         else
         {
+            // В противном случае продолжаем выполнять основную задачу (движение к точке назначения)
             ContinueMainTask();
         }
-
     }
 
     private void SetTarget(GameObject target)
     {
+        // Устанавливаем цель-враг
         enemyTarget = target;
     }
 
-
     private void ContinueMainTask()
     {
-        if (mainTargetContainer != Vector3.zero)
+        if (waypointPosition != Vector3.zero && gameController.IsGameStarted)
         {
-            agent.destination = mainTargetContainer;
+            // Продолжаем выполнение основной задачи, если точка назначения задана и игра началась
+            agent.destination = waypointPosition;
         }
     }
-
-
 }

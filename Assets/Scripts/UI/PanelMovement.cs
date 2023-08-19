@@ -8,7 +8,10 @@ public class PanelMovement : MonoBehaviour
 
     private void Awake()
     {
-        EnemyBase.OnBaseDestroy += OnWin;
+        GameObject enemyBase = GameObject.FindGameObjectWithTag("EnemyBase");
+
+
+        enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += OnWin;
 
         trans = transform;
 

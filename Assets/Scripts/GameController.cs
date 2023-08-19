@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
     private bool isGameStarted;
-    public static event Action onGameStartedChanged;
+
+    public event Action onGameStartedChanged;
 
 
     public bool IsGameStarted
@@ -27,7 +27,10 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        EnemyBase.OnBaseDestroy += OnWin;
+        GameObject enemyBase = GameObject.FindGameObjectWithTag("EnemyBase");
+
+
+        enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += OnWin;
 
         Time.timeScale = 1f;
         isGameStarted = false;
@@ -60,18 +63,13 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1.0f;
             return;
         }
-    }
 
+    }
 
 
     private void OnWin()
     {
-
         Time.timeScale = 0.1f;
-
-
-
-
         Debug.Log("WIN");
     }
 

@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e3768c4c455f140bf82c83ca571ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clonedByWall: []
 --- !u!33 &6531942698130930234
 MeshFilter:
   m_ObjectHideFlags: 0
