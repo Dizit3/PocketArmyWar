@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +6,8 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
 
-    public static List<GameObject> EnemyBases  = new List<GameObject>();
+    public static List<GameObject> EnemyBases = new List<GameObject>();
+
 
     public int currentHP; // Текущее количество очков здоровья базы
     [SerializeField] private GameObject enemyPrefab; // Префаб врага, который будет появляться
@@ -16,7 +16,7 @@ public class EnemyBase : MonoBehaviour
 
     private bool isSpawnActive = false; // Флаг активности спавна врагов
 
-    private void Start()
+    private void Awake()
     {
         EnemyBases.Add(gameObject);
 
@@ -36,8 +36,8 @@ public class EnemyBase : MonoBehaviour
             if (currentHP <= 0)
             {
                 // Если очки здоровья опустились до нуля, вызываем событие уничтожения базы
-                OnBaseDestroy?.Invoke();
                 gameObject.SetActive(false);
+                OnBaseDestroy?.Invoke();
             }
         }
     }

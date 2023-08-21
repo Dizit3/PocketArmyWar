@@ -12,24 +12,24 @@ public class MinionsMovement : MonoBehaviour
 
     private void Awake()
     {
-        // Получаем ссылку на компонент NavMeshAgent
-        agent = GetComponent<NavMeshAgent>();
-        // Получаем ссылку на компонент обнаружения врагов
-        detection = GetComponentInChildren<MinionEnemyDetection>();
-        // Получаем позицию точки назначения (Waypoint)
-        waypointPosition = GameObject.FindGameObjectWithTag("EnemyBase").transform.position;
-        // Получаем ссылку на компонент контроллера игры
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        // Подписываемся на событие начала игры
-        gameController.onGameStartedChanged += StartMove;
-        // Подписываемся на событие обнаружения врага
-        detection.OnEnemyDetect += SetTarget;
+        agent = GetComponent<NavMeshAgent>();        // Получаем ссылку на компонент NavMeshAgent
+        detection = GetComponentInChildren<MinionEnemyDetection>();        // Получаем ссылку на компонент обнаружения врагов
+
+        waypointPosition = GameObject.FindGameObjectWithTag("EnemyBase").transform.position;        // Получаем позицию точки назначения 
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();        // Получаем ссылку на компонент контроллера игры
+
+        gameController.onGameStartedChanged += StartMove;        // Подписываемся на событие начала игры
+        detection.OnEnemyDetect += SetTarget;        // Подписываемся на событие обнаружения врага
+
     }
 
     private void StartMove()
     {
         // Начинаем движение к точке назначения (Waypoint)
-        agent.destination = waypointPosition;
+        //agent.destination = waypointPosition;
+
+        agent.SetDestination(waypointPosition);
+
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class MinionsMovement : MonoBehaviour
         if (enemyTarget != null)
         {
             // Если обнаружена цель-враг, двигаемся к ней
-            agent.destination = enemyTarget.transform.position;
+            agent.SetDestination(enemyTarget.transform.position); 
         }
         else
         {
@@ -64,7 +64,7 @@ public class MinionsMovement : MonoBehaviour
         if (waypointPosition != Vector3.zero && gameController.IsGameStarted)
         {
             // Продолжаем выполнение основной задачи, если точка назначения задана и игра началась
-            agent.destination = waypointPosition;
+            agent.SetDestination(waypointPosition);
         }
     }
 }

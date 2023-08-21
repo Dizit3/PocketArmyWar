@@ -9,7 +9,7 @@ public class GameStateObserver : MonoBehaviour
     public event Action OnWin;
 
 
-    private void Awake()
+    private void Start()
     {
         foreach (var enemyBase in EnemyBase.EnemyBases)
         {

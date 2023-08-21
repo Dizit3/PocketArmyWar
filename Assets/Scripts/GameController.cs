@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -28,11 +28,8 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         GameObject gameStateObserver = GameObject.FindGameObjectWithTag("GameController");
+        gameStateObserver.GetComponent<GameStateObserver>().OnWin += WinEventHandler;
 
-
-        gameStateObserver.GetComponent<GameStateObserver>().OnWin += OnWin;
-
-        Time.timeScale = 1f;
         isGameStarted = false;
     }
 
@@ -69,11 +66,25 @@ public class GameController : MonoBehaviour
 
     private void WinEventHandler()
     {
-        Time.timeScale = 0.1f;
+        //Также срабатывает WinEventHandler в скрипте PanelMovement
+        DestroyAllMinions();
+
+        ClearListOfEnemyBases();
+
+
         Debug.Log("WIN");
     }
 
+    private void ClearListOfEnemyBases()
+    {
+        EnemyBase.EnemyBases.Clear();
+    }
 
-
-
+    private void DestroyAllMinions()
+    {
+        foreach (var minion in GameObject.FindGameObjectsWithTag("Minion"))
+        {
+            Destroy(minion);
+        }
+    }
 }

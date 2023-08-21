@@ -1,5 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UIElements;
 
 public class PanelMovement : MonoBehaviour
 {
@@ -8,20 +9,20 @@ public class PanelMovement : MonoBehaviour
 
     private void Awake()
     {
-        GameObject enemyBase = GameObject.FindGameObjectWithTag("EnemyBase");
-
-
-        enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += OnWin;
+        GameObject gameStateObserver = GameObject.FindGameObjectWithTag("GameController");
+        gameStateObserver.GetComponent<GameStateObserver>().OnWin += WinEventHandler;
 
         trans = transform;
 
     }
 
 
-    private void OnWin()
+    private void WinEventHandler()
     {
+        //Также срабатывает WinEventHandler в скрипте GameController
 
-        trans.DOLocalMove(Vector3.zero, 0.1f);
+        //Выдвигаем панель на экран 
+        trans.DOLocalMove(Vector3.zero, 0.5f);
     }
 
 }
