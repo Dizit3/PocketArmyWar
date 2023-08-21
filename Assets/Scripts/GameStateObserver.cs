@@ -1,17 +1,36 @@
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameStateObserver : MonoBehaviour
 {
 
-    //private void GameStateHandler()
-    //{
+    public event Action OnWin;
 
-    //    foreach (var item in GameObject.FindGameObjectsWithTag("EnemyBase"))
-    //    {
-    //        if(item)
-    //    }
+    private void GameStateHandler()
+    {
 
-    //}
+        List<GameObject> activeEnemyBases = new List<GameObject>();
 
+        foreach (var item in GameObject.FindGameObjectsWithTag("EnemyBase"))
+        {
+            if (item.activeInHierarchy == true)
+            {
+                activeEnemyBases.Add(item);
+                return;
+
+            }
+        }
+
+        if (activeEnemyBases.Count > 0)
+        {
+            return;
+        }
+        else
+        {
+            OnWin?.Invoke();
+        }
+    }
 
 }

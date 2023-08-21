@@ -31,6 +31,7 @@ public class EnemyBase : MonoBehaviour
             {
                 // Если очки здоровья опустились до нуля, вызываем событие уничтожения базы
                 OnBaseDestroy?.Invoke();
+                gameObject.SetActive(false);
             }
         }
     }

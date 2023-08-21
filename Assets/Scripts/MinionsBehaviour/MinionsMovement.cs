@@ -1,9 +1,5 @@
-﻿
-
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using Zenject.Asteroids;
 
 public class MinionsMovement : MonoBehaviour
 {
@@ -18,19 +14,14 @@ public class MinionsMovement : MonoBehaviour
     {
         // Получаем ссылку на компонент NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
-
         // Получаем ссылку на компонент обнаружения врагов
         detection = GetComponentInChildren<MinionEnemyDetection>();
-
         // Получаем позицию точки назначения (Waypoint)
         waypointPosition = GameObject.FindGameObjectWithTag("EnemyBase").transform.position;
-
         // Получаем ссылку на компонент контроллера игры
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-
         // Подписываемся на событие начала игры
         gameController.onGameStartedChanged += StartMove;
-
         // Подписываемся на событие обнаружения врага
         detection.OnEnemyDetect += SetTarget;
     }
@@ -42,6 +33,13 @@ public class MinionsMovement : MonoBehaviour
     }
 
     private void Update()
+    {
+
+        CheckExistingOfCurrentTarget();
+
+    }
+
+    private void CheckExistingOfCurrentTarget()
     {
         if (enemyTarget != null)
         {

@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         GameObject enemyBase = GameObject.FindGameObjectWithTag("EnemyBase");
 
 
-        enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += OnWin;
+        //enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += OnWin;
 
         Time.timeScale = 1f;
         isGameStarted = false;

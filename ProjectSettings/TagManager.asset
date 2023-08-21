@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - WayPoint
   - Minion
   - OurBase
   - Enemy
   - Wall
+  - EnemyBase
   layers:
   - Default
   - TransparentFX
