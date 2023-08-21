@@ -1,10 +1,14 @@
 ﻿
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
+
+    public static List<GameObject> EnemyBases  = new List<GameObject>();
+
     public int currentHP; // Текущее количество очков здоровья базы
     [SerializeField] private GameObject enemyPrefab; // Префаб врага, который будет появляться
 
@@ -14,6 +18,8 @@ public class EnemyBase : MonoBehaviour
 
     private void Start()
     {
+        EnemyBases.Add(gameObject);
+
         // Находим объект GameController и подписываемся на событие изменения состояния игры
         GameObject gameController = GameObject.FindGameObjectWithTag("GameController");
         gameController.GetComponent<GameController>().onGameStartedChanged += ToggleEnemySpawn;

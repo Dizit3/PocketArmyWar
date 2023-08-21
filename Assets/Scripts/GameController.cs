@@ -27,10 +27,10 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        GameObject enemyBase = GameObject.FindGameObjectWithTag("EnemyBase");
+        GameObject gameStateObserver = GameObject.FindGameObjectWithTag("GameController");
 
 
-        //enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += OnWin;
+        gameStateObserver.GetComponent<GameStateObserver>().OnWin += OnWin;
 
         Time.timeScale = 1f;
         isGameStarted = false;
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
     }
 
 
-    private void OnWin()
+    private void WinEventHandler()
     {
         Time.timeScale = 0.1f;
         Debug.Log("WIN");

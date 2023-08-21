@@ -8,6 +8,15 @@ public class GameStateObserver : MonoBehaviour
 
     public event Action OnWin;
 
+
+    private void Awake()
+    {
+        foreach (var enemyBase in EnemyBase.EnemyBases)
+        {
+            enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += GameStateHandler;
+        }
+    }
+
     private void GameStateHandler()
     {
 
