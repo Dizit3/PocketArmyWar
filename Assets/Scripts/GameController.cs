@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
         {
             IsGameStarted = true;
         }
-        else if (Input.touchCount > 2)
+        else if (Input.touchCount > 1)
         {
             IsGameStarted = true;
         }
@@ -58,7 +58,6 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1.0f;
             return;
         }
-
     }
 
 

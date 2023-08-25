@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,11 +28,19 @@ public class MinionsMovement : MonoBehaviour
     private void Update()
     {
 
+
+        //if (CheckUserChoosedTarget() != true) 
         CheckExistingOfCurrentTarget();
 
     }
 
+    //private bool CheckUserChoosedTarget()
+    //{
 
+        
+
+    //    throw new NotImplementedException();
+    //}
 
     private void TargetChoosing(out GameObject closestEnemyBase)
     {
