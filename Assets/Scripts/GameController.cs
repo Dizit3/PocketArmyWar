@@ -15,11 +15,9 @@ public class GameController : MonoBehaviour
         {
             if (isGameStarted != value)
             {
-
                 isGameStarted = value;
                 onGameStartedChanged?.Invoke();
             }
-
         }
     }
 

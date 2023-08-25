@@ -47,7 +47,7 @@ public class MinionsMovement : MonoBehaviour
 
         foreach (var enemyBase in EnemyBase.EnemyBases)
         {
-            if (enemyBase != null && enemyBase.activeInHierarchy) // Проверяем, что объект не равен null
+            if (enemyBase != null && enemyBase.activeInHierarchy) // Проверяем, что объект не равен null и 
             {
                 float distance = Vector3.Distance(transform.position, enemyBase.transform.position);
                 gameObjectsWithDistance.Add(new GameObjectWithDistance(enemyBase, distance));
