@@ -427,6 +427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush 04 triple prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9af17b52f557c8441828689e41cf2cbf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9af17b52f557c8441828689e41cf2cbf, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.1905942
@@ -857,6 +861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass 01 triple prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7b1460807121f9c41b20dc1f4578fd8f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b1460807121f9c41b20dc1f4578fd8f, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.889142
@@ -1080,6 +1088,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2c818bf654732c94abd87b9b82312003, type: 3}
       propertyPath: m_Name
       value: Grass 03 triple prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2c818bf654732c94abd87b9b82312003, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c818bf654732c94abd87b9b82312003, type: 3}
       propertyPath: m_LocalScale.x
@@ -1629,6 +1641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass 08 triple prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 21ead960a4d3c8f4f87ef866ca19f968, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 21ead960a4d3c8f4f87ef866ca19f968, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4078
@@ -1801,7 +1817,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.63988, z: -0, w: 0.76847494}
   m_LocalPosition: {x: -2.4700003, y: 0.254, z: 4.7100005}
-  m_LocalScale: {x: 0.04285895, y: 0.031175049, z: 0.043728273}
+  m_LocalScale: {x: 0.04285897, y: 0.031175049, z: 0.043728285}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 789846769}
@@ -2441,6 +2457,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Ground + Bright 2x2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 4826535345492632, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.725459
@@ -2846,6 +2870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush 03 triple prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cea115c45a612d4498f6e217d227ddc4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cea115c45a612d4498f6e217d227ddc4, type: 3}
       propertyPath: m_LocalScale.x
       value: 5.084242
@@ -2920,6 +2948,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 117aea67ecde6ed44a15c76a53139de1, type: 3}
       propertyPath: m_Name
       value: Grass 04 triple prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 117aea67ecde6ed44a15c76a53139de1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 117aea67ecde6ed44a15c76a53139de1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 117aea67ecde6ed44a15c76a53139de1, type: 3}
       propertyPath: m_LocalScale.x
@@ -4087,6 +4123,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 63af54805b092ab47a98525e619a0f32, type: 3}
       propertyPath: m_Name
       value: Grass 02 double prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 63af54805b092ab47a98525e619a0f32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 63af54805b092ab47a98525e619a0f32, type: 3}
       propertyPath: m_LocalScale.x
@@ -5724,6 +5764,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Ground + Bright 2x2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 4826535345492632, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.78
@@ -5886,6 +5934,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3512926250671246769, guid: d78fa5b7cdcf181489d6f13ab66d204e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513192578338698843, guid: d78fa5b7cdcf181489d6f13ab66d204e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 7951987774876795004, guid: d78fa5b7cdcf181489d6f13ab66d204e,
         type: 3}
       propertyPath: m_Name
@@ -5895,6 +5953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951987774876795004, guid: d78fa5b7cdcf181489d6f13ab66d204e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6467,6 +6530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush 04 double prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9074a2464822cc24395f048e3eba4169, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9074a2464822cc24395f048e3eba4169, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.21375047
@@ -6880,6 +6947,18 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 47cc85fdee2fa2b418fe4711c32248b5, type: 3}
       propertyPath: m_Name
       value: Bush 03 double prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 47cc85fdee2fa2b418fe4711c32248b5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 47cc85fdee2fa2b418fe4711c32248b5, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 47cc85fdee2fa2b418fe4711c32248b5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 87
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47cc85fdee2fa2b418fe4711c32248b5, type: 3}
       propertyPath: m_LocalScale.x
@@ -7906,6 +7985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big sharp leafs prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 892fe4238e8c4f946ae53f3e4e357d2c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 892fe4238e8c4f946ae53f3e4e357d2c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.067931384
@@ -8305,6 +8388,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Ground + Bright 2x2
       objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 4826535345492632, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.705
@@ -8361,6 +8452,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7494867bd96a1a04a80030ee88c57486, type: 3}
       propertyPath: m_Name
       value: Grass 05 double prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7494867bd96a1a04a80030ee88c57486, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7494867bd96a1a04a80030ee88c57486, type: 3}
       propertyPath: m_LocalScale.x
@@ -8924,6 +9019,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Castle Ground + Bright 2x2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272285117899090, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 4826535345492632, guid: 69c604d73c439064d8867d7760a2c139, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.78
@@ -9170,25 +9273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers: []
-  _installerPrefabs: []
-  _autoRun: 1
-  OnPreInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPreResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  _parentNewObjectsUnderSceneContext: 0
-  _contractNames: []
-  _parentContractNames: []
 --- !u!4 &2048822107
 Transform:
   m_ObjectHideFlags: 0
@@ -9579,7 +9663,7 @@ PrefabInstance:
     - target: {fileID: 7951987774876795004, guid: d78fa5b7cdcf181489d6f13ab66d204e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
