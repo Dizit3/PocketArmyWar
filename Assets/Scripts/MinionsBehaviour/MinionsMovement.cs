@@ -16,11 +16,11 @@ public class MinionsMovement : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();        // Получаем ссылку на компонент NavMeshAgent
-        detection = GetComponentInChildren<MinionEnemyDetection>();        // Получаем ссылку на компонент обнаружения врагов
 
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();        // Получаем ссылку на компонент контроллера игры
-
         gameController.onGameStartedChanged += StartMove;        // Подписываемся на событие начала игры
+
+        detection = GetComponentInChildren<MinionEnemyDetection>();        // Получаем ссылку на компонент обнаружения врагов
         detection.OnEnemyDetect += SetTarget;        // Подписываемся на событие обнаружения врага
 
     }

@@ -11,7 +11,7 @@ public class PanelMovement : MonoBehaviour
     {
         GameObject gameStateObserver = GameObject.FindGameObjectWithTag("GameController");
         gameStateObserver.GetComponent<GameStateObserver>().OnWin += WinEventHandler;
-
+        gameStateObserver.GetComponent<GameStateObserver>().OnDefeat += WinEventHandler;
         trans = transform;
 
     }

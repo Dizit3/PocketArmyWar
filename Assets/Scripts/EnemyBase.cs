@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-
+    private const string enemyTag = "Minion";
     public static List<GameObject> EnemyBases = new List<GameObject>();
 
 
-    public int currentHP; // Текущее количество очков здоровья базы
+    [SerializeField] private int currentHP; // Текущее количество очков здоровья базы
     [SerializeField] private GameObject enemyPrefab; // Префаб врага, который будет появляться
 
     public event Action OnBaseDestroy; // Событие, которое будет вызвано при уничтожении базы
 
     private bool isSpawnActive = false; // Флаг активности спавна врагов
     [SerializeField] private float spawnRate = 1f;
+
+
 
     private void Awake()
     {
@@ -26,22 +28,32 @@ public class EnemyBase : MonoBehaviour
         gameController.GetComponent<GameController>().onGameStartedChanged += ToggleEnemySpawn;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (other.CompareTag("Minion"))
+        if (collider.CompareTag(enemyTag))
         {
-            --currentHP; // Уменьшаем очки здоровья базы
-
-            other.gameObject.SetActive(false); // Деактивируем объект "Minion"
+            TakeDamage(collider);
 
             if (currentHP <= 0)
             {
-                // Если очки здоровья опустились до нуля, вызываем событие уничтожения базы
-                gameObject.SetActive(false);
-
-                OnBaseDestroy?.Invoke();
+                DestroyHandler();
             }
         }
+    }
+
+    private void TakeDamage(Collider collider)
+    {
+        --currentHP; // Уменьшаем очки здоровья базы
+
+        collider.gameObject.SetActive(false); // Деактивируем объект "Minion"
+    }
+
+    private void DestroyHandler()
+    {
+        // Если очки здоровья опустились до нуля, вызываем событие уничтожения базы
+        gameObject.SetActive(false);
+
+        OnBaseDestroy?.Invoke();
     }
 
     private void ToggleEnemySpawn()

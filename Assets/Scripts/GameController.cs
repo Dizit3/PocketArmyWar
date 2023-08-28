@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     {
         GameObject gameStateObserver = GameObject.FindGameObjectWithTag("GameController");
         gameStateObserver.GetComponent<GameStateObserver>().OnWin += WinEventHandler;
-
+        gameStateObserver.GetComponent<GameStateObserver>().OnDefeat += DefeatEventHandler;
         isGameStarted = false;
     }
 
@@ -65,16 +65,26 @@ public class GameController : MonoBehaviour
     {
         //Также срабатывает WinEventHandler в скрипте PanelMovement
         DestroyAllMinions();
-
-        ClearListOfEnemyBases();
-
+        ClearListOfBases();
 
         Debug.Log("WIN");
     }
 
-    private void ClearListOfEnemyBases()
+    private void DefeatEventHandler()
+    {
+        DestroyAllMinions();
+        ClearListOfBases();
+
+        Debug.Log("Defeat");
+
+    }
+
+
+
+    private void ClearListOfBases()
     {
         EnemyBase.EnemyBases.Clear();
+        OurBase.OurBases.Clear();
     }
 
     private void DestroyAllMinions()
@@ -83,5 +93,11 @@ public class GameController : MonoBehaviour
         {
             Destroy(minion);
         }
+
+        foreach (var minion in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(minion);
+        }
+
     }
 }
