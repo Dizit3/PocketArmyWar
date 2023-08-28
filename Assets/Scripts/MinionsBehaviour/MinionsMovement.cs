@@ -127,7 +127,7 @@ public class MinionsMovement : MonoBehaviour
         TargetChoosing(out enemyBase);
 
 
-        if (enemyBase.transform.position != Vector3.zero && gameController.IsGameStarted && enemyBase != null)
+        if (enemyBase?.transform.position != Vector3.zero && gameController.IsGameStarted && enemyBase != null)
         {
             // Продолжаем выполнение основной задачи, если точка назначения задана и игра началась
             agent.SetDestination(enemyBase.transform.position);

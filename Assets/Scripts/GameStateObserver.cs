@@ -13,19 +13,19 @@ public class GameStateObserver : MonoBehaviour
     {
         foreach (var enemyBase in EnemyBase.EnemyBases)
         {
-            enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += GameStateHandler;
+            enemyBase.GetComponent<EnemyBase>().OnBaseDestroy += WinHandler;
         }
 
 
         foreach (var ourBase in OurBase.OurBases)
         {
-            ourBase.GetComponent<OurBase>().OnBaseDestroy += GameStateHandler;
+            ourBase.GetComponent<OurBase>().OnBaseDestroy += DefeatHandler;
 
         }
 
     }
 
-    private void GameStateHandler()
+    private void DefeatHandler()
     {
         List<GameObject> activeOurBases = new List<GameObject>();
 
@@ -43,10 +43,11 @@ public class GameStateObserver : MonoBehaviour
         if (activeOurBases.Count <= 0)
         {
             OnDefeat?.Invoke();
-            return;
         }
+    }
 
-
+    private void WinHandler()
+    {
 
         List<GameObject> activeEnemyBases = new List<GameObject>();
 
@@ -63,8 +64,6 @@ public class GameStateObserver : MonoBehaviour
         if (activeEnemyBases.Count <= 0)
         {
             OnWin?.Invoke();
-            return;
         }
     }
-
 }
