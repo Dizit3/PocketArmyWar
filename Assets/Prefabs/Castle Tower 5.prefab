@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 2916765558747654340}
   - component: {fileID: 6433094540622503442}
   - component: {fileID: 8014435600899035868}
-  - component: {fileID: 1474877346814419507}
+  - component: {fileID: -6914417451896234016}
+  - component: {fileID: 2620971451270990595}
   m_Layer: 0
   m_Name: Castle Tower 5
-  m_TagString: Untagged
+  m_TagString: EnemyBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -85,8 +86,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1474877346814419507
-MeshCollider:
+--- !u!114 &-6914417451896234016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951987774876795004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c273b61c9495af64bb8c3e98096c9ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  enemyPrefab: {fileID: 5079240894619553051, guid: 5a56a671ed11fa04e80a8ddbaccde716,
+    type: 3}
+  spawnRate: 10
+--- !u!65 &2620971451270990595
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -100,13 +117,12 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: ede9fe078b547a54385df18e13cb02b1, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 4.7429566, y: 7.5000215, z: 4.7429786}
+  m_Center: {x: 0.00000011920935, y: 3.7499988, z: -0.000013351449}
 --- !u!1001 &3514415745610071109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,7 +179,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 64365591117714818, guid: 57db304a89450eb459b16b5a42d62acf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65006394197158454, guid: 57db304a89450eb459b16b5a42d62acf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65006394197158454, guid: 57db304a89450eb459b16b5a42d62acf,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 64365591117714818, guid: 57db304a89450eb459b16b5a42d62acf, type: 3}
+    - {fileID: 65006394197158454, guid: 57db304a89450eb459b16b5a42d62acf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
