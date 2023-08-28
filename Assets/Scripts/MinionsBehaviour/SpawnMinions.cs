@@ -4,6 +4,9 @@ public class SpawnMinions : MonoBehaviour
 {
     [SerializeField] private GameObject spawnPrefab;
 
+    private float lastSpawnTime;
+    [SerializeField] private float spawnDelay = 1.0f;
+
 
     private void Update()
     {
@@ -26,14 +29,17 @@ public class SpawnMinions : MonoBehaviour
 
     private void TouchHandler(Touch touch)
     {
-        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+        if (Time.time - lastSpawnTime >= spawnDelay && touch.phase == TouchPhase.Began)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
 
-        RaycastHit hit;
+            RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
-            Instantiate(spawnPrefab, hit.point, Quaternion.identity);
+            if (Physics.Raycast(ray, out hit))
+                if (hit.collider.gameObject == gameObject)
+                {
+                    Instantiate(spawnPrefab, hit.point, Quaternion.identity);
+                }
+        }
     }
-
-
-
 }

@@ -101,7 +101,7 @@ MonoBehaviour:
   currentHP: 0
   enemyPrefab: {fileID: 5079240894619553051, guid: 5a56a671ed11fa04e80a8ddbaccde716,
     type: 3}
-  spawnRate: 10
+  spawnRate: 1
 --- !u!65 &2620971451270990595
 BoxCollider:
   m_ObjectHideFlags: 0
