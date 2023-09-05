@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class RestartLevelButton : MonoBehaviour
 {
-
-
     public void OnClick()
     {
-        SceneManager.LoadScene(0);
+       Scene currentScene = SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene(currentScene.name);
     }
 }
